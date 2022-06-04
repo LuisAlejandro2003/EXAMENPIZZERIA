@@ -5,40 +5,43 @@ import java.util.Scanner;
 public class Pedido {
     private  Scanner teclado = new Scanner(System.in);
     public  List <Pizza> lista = new LinkedList<Pizza>();
-    public  List <Cliente> lista2 = new LinkedList<Cliente>();
+
     Cliente Cliente1  = new Cliente("",0);
-   public void levantarPedido(){
-       int numeroPizzas;
-       String decisionSabor;
-       byte opcion;
-       CatalogoPizza.mostrarMenu();
-       System.out.println("Escriba su especialidad:");
-       opcion = teclado.nextByte();
-       if (opcion==1){
-           System.out.println("Seleccione el numero de pizzas que desea: ");
-           opcion = teclado.nextByte();
-           switch (opcion){
-               case 1: lista.add(new Pizza(1, "Hawaiana" ));
-                   break;
-               case 2: lista.add(new Pizza(2, "Hawaiana" ));
-                   break;
-               case 3:  lista.add(new Pizza(3, "Hawaiana" ));
-                   break;
-           }
-       }
-       if (opcion==2){
-           System.out.println("Seleccione el numero de pizzas que desea: ");
-           opcion = teclado.nextByte();
-           switch (opcion){
-               case 1: lista.add(new Pizza(1, "Peperoni" ));
-                   break;
-               case 2: lista.add(new Pizza(2, "Peperoni" ));
-                   break;
-               case 3:  lista.add(new Pizza(3, "Peperoni" ));
-                   break;
-           }
-       }
-   }
+    Pizza PizzaHawaiana = new Pizza(0,"hawaiana",178);
+    Pizza PizzaPeperoni= new Pizza(0,"peperoni",150);
+    public int levantarPedido(){
+        int opcion;
+        CatalogoPizza.mostrarMenu();
+        System.out.println("Escriba su especialidad:");
+        opcion = teclado.nextInt();
+        if (opcion==1){
+            System.out.println("Digite el numero de pizzas que desea: ");
+            opcion = teclado.nextInt();
+            PizzaHawaiana.setCantidad(opcion);
+
+            System.out.println("Este es el nombre: " + Cliente1.getNombre());
+            System.out.println("Este es el numero de telefono: "+ Cliente1.getCelular());
+
+            System.out.println("Eligio este sabor: "+ PizzaHawaiana.getSabor());
+            System.out.println("Este es el precio: " + PizzaHawaiana.getPrecio());
+            System.out.println("Esta es la cantidad: " + PizzaHawaiana.getCantidad());
+        }
+        if (opcion==2){
+
+            System.out.println("Digite el numero de pizzas que desea: ");
+            opcion = teclado.nextInt();
+            PizzaPeperoni.setCantidad(opcion);
+
+            System.out.println("Este es el nombre: " + Cliente1.getNombre());
+            System.out.println("Este es el numero de telefono: "+ Cliente1.getCelular());
+
+            System.out.println("Eligio este sabor: "+ PizzaPeperoni.getSabor());
+            System.out.println("Este es el precio: " + PizzaPeperoni.getPrecio());
+            System.out.println("Este es la cantidad: " + PizzaPeperoni.getCantidad());
+        }
+        return opcion;
+
+    }
    public void levantarDatosCliente(){
        String nameCliente;
        int numeroCelular;
@@ -51,16 +54,6 @@ public class Pedido {
        Cliente1.setCelular(numeroCelular);
 
    }
-    public void imprimirTicket(){
-        for (Pizza lista : lista) {
-            System.out.println("Cantidad: "+ lista.getCantidad());
-            System.out.println("Sabor: "+ lista.getSabor());
-        }
 
 
-    }
-    public void imprimirCliente(){
-        System.out.println("Este es el nombre: " + Cliente1.getNombre());
-        System.out.println("Este es el numero: "+ Cliente1.getCelular());
-    }
 }
