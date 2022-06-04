@@ -1,7 +1,5 @@
 public class Tienda {
-    public void verPedido(){
-
-
+    public void menuPrincipal(){
 
     }
 }

@@ -21,14 +21,11 @@ public class Main {
             switch (opcion){
                 case 1:
                     objetoPedido.levantarPedido();
-
-
+                    objetoPedido.levantarDatosCliente();
                     break;
                 case 2:
                     objetoPedido.imprimirTicket();
-
-
-
+                    objetoPedido.imprimirCliente();
                     break;
                 case 3:
 
